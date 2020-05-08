@@ -1,12 +1,13 @@
 'use strict';
 
 
-const tasks = [
+let tasks = [
   "Zalít květiny",
   "Vyprat prádlo",
   "Vynést koš",
   "Vyluxovat",
 ];
+
 const updateTasks = () => {
   const taskElm = document.querySelector(".todo__tasks");
   taskElm.innerHTML = "";
@@ -15,3 +16,12 @@ const updateTasks = () => {
   }
 }
 updateTasks();
+const addBtn = document.querySelector(".btn-add");
+const addTask = () =>{
+  const newTask = document.querySelector(".new-task").value;
+  tasks.push(newTask);
+  updateTasks(tasks);
+  newTask.value = "";
+}
+addBtn.addEventListener("click", addTask);
+updateTasks(tasks);
