@@ -1,3 +1,3 @@
 'use strict';
 
-console.log('funguju!');
+document.querySelector(".todo__tasks").innerHTML = "";
