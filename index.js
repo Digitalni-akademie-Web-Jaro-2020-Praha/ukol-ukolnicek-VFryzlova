@@ -1,12 +1,13 @@
 'use strict';
 
-
 let tasks = [
   "Zalít květiny",
   "Vyprat prádlo",
   "Vynést koš",
   "Vyluxovat",
 ];
+const addBtn = document.querySelector(".btn-add");
+const newTask = document.querySelector(".new-task");
 
 const updateTasks = () => {
   const taskElm = document.querySelector(".todo__tasks");
@@ -16,12 +17,19 @@ const updateTasks = () => {
   }
 }
 updateTasks();
-const addBtn = document.querySelector(".btn-add");
+
 const addTask = () =>{
-  const newTask = document.querySelector(".new-task").value;
-  tasks.push(newTask);
+  const newTask = document.querySelector(".new-task");
+  if(newTask.value !== ""){
+  tasks.push(newTask.value);
   updateTasks(tasks);
   newTask.value = "";
+} else {
+  alert("Nezadána hodnota");
 }
+}
+
 addBtn.addEventListener("click", addTask);
-updateTasks(tasks);
+updateTasks(tasks); 
+
+
